@@ -44,13 +44,14 @@ module Verboten
                     else             options[:if]
                     end
         end
+      rescue => ex
+        flash.now[:error] = "Error in authorization test: #{ex}"
+        render :text => '', :layout => true
+      else
         unless allowed
           flash.now[:error] = options[:message] || "Access denied."
           render :text => '', :layout => true
         end
-      rescue
-        flash.now[:error] = "Error in authorization test."
-        render :text => '', :layout => true
       end
     end
   end
