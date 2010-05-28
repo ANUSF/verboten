@@ -45,8 +45,7 @@ module Verboten
                     end
         end
       rescue => ex
-        flash.now[:error] = "Error in authorization test: #{ex}"
-        render :text => '', :layout => true
+        flash_error "Error in authorization test: #{ex}"
       else
         if allowed.is_a? String
           message = allowed
@@ -54,11 +53,14 @@ module Verboten
         else
           message = options[:message] || "Access denied."
         end
-        unless allowed
-          flash.now[:error] = message
-          render :text => '', :layout => true
-        end
+        flash_error(message) unless allowed
       end
+    end
+
+    protected
+    def flash_error(message)
+      flash.now[:error] = message
+      render :text => '', :layout => true
     end
   end
 end
