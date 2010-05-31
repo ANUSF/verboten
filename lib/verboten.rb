@@ -39,7 +39,7 @@ module Verboten
             { :if => false }
           allowed = case options[:if]
                     when nil    then true
-                    when Proc   then options[:if].call(self)
+                    when Proc   then self.instance_eval(&options[:if])
                     when Symbol then self.send(options[:if])
                     else             options[:if]
                     end
