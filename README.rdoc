@@ -1,7 +1,7 @@
 Verboten
 ========
 
-(Version 0.0.1, 2009-11-18)
+(Version 0.1.0, 2010-10-27)
 
 Verboten is a lightweight authorization plugin for Rails working on
 the principle that everything is forbidden unless it is explicitly
@@ -56,4 +56,4 @@ end
 
 -------------------------------------------------------------------------------
 
-Copyright (c) 2009 ANU
+Copyright (c) 2010 ANU
