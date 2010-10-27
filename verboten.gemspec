@@ -14,15 +14,15 @@ Gem::Specification.new do |s|
 
   s.summary = 'Simple white-list authorization for Rails.'
   s.description = %q{
-  Verboten is a lightweight authorization plugin for Rails working on
-  the principle that everything is forbidden unless it is explicitly
+  Verboten is a lightweight authorization gem for Rails working on the
+  principle that everything is forbidden unless it is explicitly
   permitted.
 
-  To enable the plugin for a given controller, include the command
-  'forbid_everything'. This defines two instance methods, 'permit' and
-  'before_authorization_filter'. The former is used to permit actions
-  selectively. The latter makes sure certain before filters run before
-  authorization is tested, so that they can set the required instance
-  variables (see examples in the README).
+  Simply including the module 'Verboten' into your controllers
+  disables all actions by default and defines two new methods,
+  'permit' and 'before_authorization_filter'. The former is used to
+  permit actions selectively. The latter makes sure certain before
+  filters run before authorization is tested, so that they can set the
+  required instance variables (see examples in the README).
   }
 end

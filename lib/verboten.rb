@@ -20,6 +20,18 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 module Verboten
+  def self.included(base)
+    base.class_eval do
+      class_inheritable_accessor :permission_settings
+      self.permission_settings = {}
+
+      extend Verboten::ClassMethods
+      include Verboten::InstanceMethods
+
+      before_filter :authorize
+    end
+  end
+
   module ClassMethods
     def permit(*args, &code)
       options = args.last.is_a?(Hash) ? args.pop : {}
@@ -83,17 +95,5 @@ module Verboten
       flash.now[:error] = message
       render :text => '', :layout => true
     end
-  end
-end
-
-class ActionController::Base
-  def self.forbid_everything
-    class_inheritable_accessor :permission_settings
-    self.permission_settings = {}
-
-    extend Verboten::ClassMethods
-    include Verboten::InstanceMethods
-
-    before_filter :authorize
   end
 end
