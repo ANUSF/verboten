@@ -1,4 +1,4 @@
-Verboten is a lightweight authorization gem for Rails working on the
+Verboten is a simple authorization helper for Rails working on the
 principle that everything is forbidden unless it is explicitly
 permitted.
 
