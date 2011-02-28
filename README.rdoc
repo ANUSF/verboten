@@ -46,4 +46,6 @@ Then in the individual controllers specify which actions to permit:
     # the logged_in() method is predefined (depends on current_user())
   end
 
-Copyright (c) 2010 ANU
+Copyright (c) 2011 The Australian National University
+
+This software is being made available under the MIT licence.

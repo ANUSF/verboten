@@ -1,4 +1,4 @@
-# Copyright (c) 2010 ANU
+# Copyright (c) 2011 The Australian National University
 
 Gem::Specification.new do |s|
   s.name     = 'verboten'
